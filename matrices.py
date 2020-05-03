@@ -4,17 +4,13 @@ def checkList (list):
 	i = 1
 	j = 0
 	k = 0
-	for l in range(len(list)):    
-			try:
-				j = 0
-				while(i == 1):
-					list[l][j]
-					j += 1
-			except:
-				tempList.append(j)
-	for i in range(len(tempList)):
-		if j != tempList[i]:
-			return False
+	count = len(list[0])
+	for l in list    
+		tempCount = 0
+		for j in l:
+			tempCount += 1	
+		if tempCount != count:
+			return False	
 	return True		
 
 def isNumeric (list):
