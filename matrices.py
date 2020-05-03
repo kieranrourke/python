@@ -63,15 +63,12 @@ def sameSize (matrix1, matrix2):
 	rows1 = 0
 	rows2 = 0
 
-	for i in range(len(matrix1)):
-		rows1 += 1
-		for j in range (len(matrix1[i])):
-			cols1 += 1	
-	for i in range(len(matrix2)):
-		rows2 += 1
-		for j in range (len(matrix2[i])):
-			cols2 += 1	
-	print(cols1, cols2, rows1, rows2)
+	cols1 = len(matrix1[0])
+	rows1 = len(matrix1)
+	cols2 = len(matrix2[0])
+	rows2 = len(matrix2)
+	
+	
 	if cols1 == cols2 and rows1 == rows2 :
 		return True
 	else:
