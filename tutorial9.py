@@ -10,7 +10,7 @@ def recurseMult(a,b):
         return a + recurseMult(a,b-1)
 
 def translate (string, morse ):
-    if index == len(string):
+    if string == '':
         return ''
     if string[0] != ' ':
        return morse[string[0]] + ' '  + translate(string[1::],morse)
