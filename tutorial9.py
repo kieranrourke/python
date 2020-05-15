@@ -1,22 +1,22 @@
 
-MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', 
-                    'C':'-.-.', 'D':'-..', 'E':'.', 
-                    'F':'..-.', 'G':'--.', 'H':'....', 
-                    'I':'..', 'J':'.---', 'K':'-.-', 
-                    'L':'.-..', 'M':'--', 'N':'-.', 
-                    'O':'---', 'P':'.--.', 'Q':'--.-', 
-                    'R':'.-.', 'S':'...', 'T':'-', 
-                    'U':'..-', 'V':'...-', 'W':'.--', 
-                    'X':'-..-', 'Y':'-.--', 'Z':'--..', 
-                    '1':'.----', '2':'..---', '3':'...--', 
-                    '4':'....-', '5':'.....', '6':'-....', 
-                    '7':'--...', '8':'---..', '9':'----.', 
-                    '0':'-----', ', ':'--..--', '.':'.-.-.-', 
-                    '?':'..--..', '/':'-..-.', '-':'-....-', 
+MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
+                    'C':'-.-.', 'D':'-..', 'E':'.',
+                    'F':'..-.', 'G':'--.', 'H':'....',
+                    'I':'..', 'J':'.---', 'K':'-.-',
+                    'L':'.-..', 'M':'--', 'N':'-.',
+                    'O':'---', 'P':'.--.', 'Q':'--.-',
+                    'R':'.-.', 'S':'...', 'T':'-',
+                    'U':'..-', 'V':'...-', 'W':'.--',
+                    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+                    '1':'.----', '2':'..---', '3':'...--',
+                    '4':'....-', '5':'.....', '6':'-....',
+                    '7':'--...', '8':'---..', '9':'----.',
+                    '0':'-----', ', ':'--..--', '.':'.-.-.-',
+                    '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
 def multInt (a, b):
     return  a * b
-    
+
 def recurseMult(a,b):
     if b == 1:
         return a
@@ -30,8 +30,8 @@ def translate (string ):
        return MORSE_CODE_DICT[string[0]] + ' '  + translate(string[1::])
     else:
         return ' ' + translate (string [1::])
-   
-    
+
+
 def addList (nums):
     if nums == []:
         return 0
@@ -43,37 +43,25 @@ def addList2 (nums, even, odd, zeroes):
         return even,odd, zeroes
     a = nums.pop()
     if a == 0:
-        return addList2(nums,even, odd,zeroes + 1)
+        return addList2(nums, even, odd,zeroes + 1)
     elif a % 2 == 0:
-        return addList2(nums,even +a, odd,zeroes)
+        return addList2(nums, even + a, odd,zeroes)
     else:
-        return addList2(nums,even, odd +a,zeroes)
+        return addList2(nums, even, odd + a, zeroes)
+
 def addlist3 (nums):
-    zeroes = 0
-    even = 0
-    odd = 0
-    even,odd,zeroes = addList2(nums,0,0,0)
-    
-    return even, odd, zeroes
+    return addList2(nums, 0, 0, 0)
+
 def minMax (myList, min,max):
     if myList == []:
         return max, min
     a = myList.pop()
     if min > a:
-        return minMax(myList, a, max) 
+        return minMax(myList, a, max)
     elif max < a:
-        return minMax(myList, min, a ) 
+        return minMax(myList, min, a )
     else:
-        return minMax(myList, min, max) 
-#leaving out last q
+        return minMax(myList, min, max)
+
 def minMax1 (myList):
-    max, min = minMax(myList, myList[0], myList[0])
-    return max, min
-
-
-myList = [1,2,3,4,5,6]
-min1 = 0
-max1 = 0
-index = 0
-
-print(translate("HELLO WORLD"))
+    return minMax(myList, myList[0], myList[0])
