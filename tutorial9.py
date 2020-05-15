@@ -29,15 +29,20 @@ def addList (nums):
 def addList2 (nums, even, odd, zeroes):
     if nums == []:
         return even,odd, zeroes
-    a = num.pop()
+    a = nums.pop()
     if a == 0:
-        return addList2(nums,index + 1,even, odd,zeroes + 1)
+        return addList2(nums,even, odd,zeroes + 1)
     elif a % 2 == 0:
-        return addList2(nums,index + 1,even +a, odd,zeroes)
+        return addList2(nums,even +a, odd,zeroes)
     else:
-        return addList2(nums,index + 1,even, odd +a,zeroes)
+        return addList2(nums,even, odd +a,zeroes)
 def addlist3 (nums):
-    addList2(nums,0,0,0)
+    zeroes = 0
+    even = 0
+    odd = 0
+    even,odd,zeroes = addList2(nums,0,0,0)
+    
+    return even, odd, zeroes
 def minMax (myList, min,max):
     if myList == []:
         return max, min
@@ -51,6 +56,7 @@ def minMax (myList, min,max):
 #leaving out last q
 def minMax1 (myList):
     max, min = minMax(myList, myList[0], myList[0])
+    return max, min
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', 
                     'C':'-.-.', 'D':'-..', 'E':'.', 
                     'F':'..-.', 'G':'--.', 'H':'....', 
@@ -72,8 +78,9 @@ myList = [1,2,3,4,5,6]
 min1 = 0
 max1 = 0
 index = 0
-max1, min1 = minMax(myList, min1,max1)
-print(translate("HI", MORSE_CODE_DICT))
+#max1, min1 = minMax(myList, min1,max1)
+print(addlist3(myList))
+#print(translate("HI", MORSE_CODE_DICT))
 #print(addlist3(myList))
 #print (min1, max1)
 #print (addList(myList,0))
